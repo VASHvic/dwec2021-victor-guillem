@@ -1,0 +1,45 @@
+.button {
+  width: 40rem;
+  height: 25px;
+  background: #452d9c;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav {
+  width: 4rem;
+}
+
+.header-nav {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 2rem;
+  color: rgb(39, 40, 122);
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(39, 40, 122);
+}
+
+.button:hover {
+  background: #6d55cf;
+}
+
+ul {
+  display: table;
+  margin: 1rem auto;
+  list-style-type: none;
+}
+
+li {
+  margin: 1rem;
+}
