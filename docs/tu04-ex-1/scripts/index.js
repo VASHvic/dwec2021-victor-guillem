@@ -7,11 +7,11 @@ while (loop) {
   let question = prompt(`Guess the number between 1 and 100!`);
 
   while (question != randomNumber) {
-    //si el usuario cancela
+    //if the user chooses to cancel
     if (question == null) {
       loop = false;
       break;
-    } // comprobar que rango es correcto
+    } // checking that the number is correct
     if (question >= 1 && question <= 100) {
       if (question > randomNumber) {
         question = prompt("Your number is higher, try again:");
@@ -21,20 +21,14 @@ while (loop) {
         tries++;
       }
     } else {
-      //No han ingresado num entre 1 y 100
+      //They didn't enter a number between 1 and 100;
       question = prompt("Enter a valid number:");
     }
-  } //han acertado
-  if (question == randomNumber) {
-    question = "";
+  } //The number is right
+  if (question == randomNumber) {   
     alert(`Congratulations! you did it in ${tries} tries!`);
     let again = confirm("Do you want to play again?");
-    if (again == true) {
-      loop = true;
-      tries = 0;
-    } else {
-      loop = false;
-      console.log("The user left the game");
-    }
-  }
+    //If the user accepts, the loop continues.
+    again == true ? loop = true : loop = false , console.log("the user left the game");
+   }
 }
