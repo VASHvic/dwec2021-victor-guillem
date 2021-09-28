@@ -16,6 +16,7 @@ while (loop) {
       if (question > randomNumber) {
         question = prompt("Your number is higher, try again:");
         tries++;
+        console.log('un intento más');
       } else {
         question = prompt("Your number is lower, try again:");
         tries++;
