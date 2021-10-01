@@ -16,7 +16,6 @@ while (loop) {
       if (question > randomNumber) {
         question = prompt("Your number is higher, try again:");
         tries++;
-        console.log('un intento más');
       } else {
         question = prompt("Your number is lower, try again:");
         tries++;
@@ -26,10 +25,11 @@ while (loop) {
       question = prompt("Enter a valid number:");
     }
   } //The number is right
-  if (question == randomNumber) {   
+  if (question == randomNumber) {
     alert(`Congratulations! you did it in ${tries} tries!`);
     let again = confirm("Do you want to play again?");
     //If the user accepts, the loop continues.
-    again == true ? loop = true : loop = false , console.log("the user left the game");
-   }
+    again == true ? (loop = true) : (loop = false),
+      console.log("the user left the game");
+  }
 }
