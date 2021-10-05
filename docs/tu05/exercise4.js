@@ -1,11 +1,13 @@
-let ask = (num, positive, negative) => (num >= 0 ? positive() : negative());
+let ask = (num, positive, negative) => (isPositive(num) ? positive() : negative());
 
-function isPositive() {
+let isPositive = (num) => (num>=0? true:false);
+
+function showPositive() {
   console.info("The number is positive");
 }
-function isNegative() {
+function showNegative() {
   console.info("The number is negative");
 }
 
-ask(23, isPositive, isNegative);
-ask(-23, isPositive, isNegative);
+ask(23, showPositive, showNegative);
+ask(-23, showPositive, showNegative);
