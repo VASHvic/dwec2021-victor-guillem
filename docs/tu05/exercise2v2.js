@@ -1,2 +1,2 @@
-let checkAge = (age) => (age >= 18 ? true : false);
-console.info(checkAge(17), checkAge(18), checkAge(19));
+let checkAge2 = (age) => (age >= 18 ? true : false);
+console.info(checkAge2(17), checkAge2(18), checkAge2(19));

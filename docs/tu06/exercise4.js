@@ -1,3 +1,5 @@
+export { ask, isPositive, showPositive, showNegative };
+
 let ask = (num, positive, negative) =>
   isPositive(num) ? positive() : negative();
 
@@ -9,6 +11,3 @@ function showPositive() {
 function showNegative() {
   console.info('The number is negative');
 }
-
-ask(23, showPositive, showNegative);
-ask(-23, showPositive, showNegative);

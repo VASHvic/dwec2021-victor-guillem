@@ -1,0 +1,16 @@
+{
+  "name": "tu06",
+  "version": "1.0.0",
+  "description": "Practica testing de clase",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Victor Guillem Lloret",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "babel-jest": "^27.2.4",
+    "jest": "^27.2.4"
+  }
+}
