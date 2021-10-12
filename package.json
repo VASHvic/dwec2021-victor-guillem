@@ -1,8 +1,8 @@
 {
-  "name": "tu06",
+  "name": "dwec2021",
   "version": "1.0.0",
-  "description": "Practica testing de clase",
-  "main": "index.js",
+  "description": "Modulos para practicas Cliente",
+  "main": "",
   "scripts": {
     "test": "jest"
   },
@@ -12,5 +12,18 @@
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
     "babel-jest": "^27.2.4",
     "jest": "^27.2.4"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VASHvic/dwec2021-victor-guillem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VASHvic/dwec2021-victor-guillem/issues"
+  },
+  "homepage": "https://github.com/VASHvic/dwec2021-victor-guillem#readme"
 }

@@ -1,10 +1,11 @@
 //exercise 1
-export { createUser, isEmpty, sumSalaries, multiplyNumeric };
+//export { createUser, isEmpty, sumSalaries, multiplyNumeric };
+module.exports = { createUser, isEmpty, sumSalaries, multiplyNumeric };
 function createUser() {
   let user = {};
-  user.name = 'John';
-  user.surname = 'Smith';
-  user.name = 'Pete';
+  user.name = "John";
+  user.surname = "Smith";
+  user.name = "Pete";
   delete user.name;
   return user;
 }
@@ -34,7 +35,7 @@ function sumSalaries(obj) {
 function multiplyNumeric(obj) {
   for (let key in obj) {
     if (!isNaN(obj[key])) {
-      obj[key] = param * 2;
+      obj[key] = obj[key] * 2;
     }
   }
 }
