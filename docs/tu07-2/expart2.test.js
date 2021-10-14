@@ -1,4 +1,4 @@
-import { Calculator } from './expart2';
+import Calculator from './expart2';
 
 describe('Test Suite tu07-2', () => {
   it('operates correctly', () => {
