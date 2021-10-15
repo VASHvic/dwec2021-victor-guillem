@@ -1,5 +1,5 @@
 export default function Calculator(num1, num2) {
-  //checking if one parameter is a boolean, since its converted to 0 and 1
+  //checking if one parameter is a boolean, since its converted to 0 or 1
 
   // prettier-ignore
   typeof num1 == 'boolean' || typeof num2 == 'boolean'? this.num1 = NaN :
