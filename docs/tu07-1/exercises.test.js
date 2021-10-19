@@ -21,16 +21,16 @@ describe("Test Suite ex1func1", () => {
     expect(test7.createUser()).toEqual({ surname: "Smith" });
   });
   it("doesnt have a name", () => {
-    expect(test7.createUser()).toEqual({ name: undefined, surname: "Smith" });
-  });
+    expect(test7.createUser()).toEqual({ name: undefined, surname: "Smith" });   //Es pot usar el toBeUndefined();
+  }); 
 });
 //Test ex2
 describe("Test Suite ex1func2", () => {
   it("returns true if the object is empty", () => {
-    expect(test7.isEmpty(schedule)).toEqual(true);
+    expect(test7.isEmpty(schedule)).toEqual(true);    //toBeTruthy
   });
   it("returns false if the object is not empty", () => {
-    expect(test7.isEmpty(schedule2)).toEqual(false);
+    expect(test7.isEmpty(schedule2)).toEqual(false);  // toBeFalsy
   });
 });
 
