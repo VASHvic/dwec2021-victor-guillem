@@ -22,7 +22,7 @@ function isEmpty(obj) {
 
 //exercise 3
 
-function sumSalaries(obj) {
+function sumSalaries(obj) {  //podria validar si el valor es un numero
   let total = 0;
   for (let key in obj) {
     total += obj[key];
