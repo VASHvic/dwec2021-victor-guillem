@@ -1,13 +1,9 @@
-// let john = { name: "John", age: 25 };
-// let pete = { name: "Pete", age: 30 };
-// let mary = { name: "Mary", age: 29 };
-
-// let arr = [john, pete, mary];
-
+// prettier-ignore
 let getAverageAge = (arr) => {
-  let ages = arr.map((person) => person.age);
-  let sumAges = ages.reduce((total, age) => total + age, 0);
-  return sumAges / ages.length;
+  if (arr.length === 0) return 0; 
+  const ages = arr.map((person) => (!isNaN(person.age) ? person.age : 0)); //make arr of ages
+  const sumAges = ages.reduce((total, age) => total + age, 0);              // calc sum of previous array
+  return sumAges / ages.length;                                             //return avg
 };
 
-console.log(getAverageAge(arr));
+module.exports = { getAverageAge };
