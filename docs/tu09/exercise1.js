@@ -1,17 +1,13 @@
-const values = [];
+import { showTotal } from "./exercise1Fn.js";
 
-let processAnswer = (answer) => {
-  // prettier-ignore
-  isNaN(answer) || answer == null || answer.trim() == "" ? (loop = false) : values.push(+answer);
-};
-let showTotal = (arr) => arr.reduce((total, num) => total + num, 0);
+const values = [];
 
 let loop = true;
 while (loop) {
   let answer = prompt("Please write a number");
-  processAnswer(answer);
+  // prettier-ignore
+  isNaN(answer) || answer == null || answer.trim() == "" ? (loop = false) : values.push(+answer);
 }
 
 const totalPrompts = showTotal(values);
-
-export { processAnswer, showTotal };
+console.log(totalPrompts);

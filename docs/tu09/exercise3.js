@@ -3,11 +3,11 @@ const salaries = {
   Ann: 250,
 };
 
-let topSalary = (salaries) => {
-  const bestPayed = [];
+let topSalary = (object) => {
+  let bestPayed = [];
   for (const [key, value] of Object.entries(salaries)) {
     console.log(`${key}: ${value}`);
   }
 };
 
-topSalary(salaries);
+console.log(topSalary[1]);
