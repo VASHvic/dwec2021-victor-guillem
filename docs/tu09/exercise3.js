@@ -1,13 +1,8 @@
-const salaries = {
-  John: 200,
-  Ann: 250,
-};
-
-let topSalary = (object) => {
-  let bestPayed = [];
-  for (const [key, value] of Object.entries(salaries)) {
-    console.log(`${key}: ${value}`);
+export let topSalary = (object) => {
+  let bestSalary = 0;
+  let bestPayed = null;
+  for (const [key, value] of Object.entries(object)) {
+    if (value > bestSalary) (bestPayed = key), (bestSalary = value);
   }
+  return bestPayed;
 };
-
-console.log(topSalary[1]);
