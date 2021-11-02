@@ -33,9 +33,12 @@ let transformJson = (string) => {
   let parsedString = JSON.parse(string);
   delete parsedString.teacher.age;
   parsedString.teacher.students.push({ name: "Ana" });
-  parsedString;
+  parsedString.province = "Valencia";
   return parsedString;
 };
 
-console.log(transformJson(ex13));
-console.log(transformJson(ex13).teacher.students);
+let showJSON = (obj) => {
+  console.log(JSON.stringify(obj));
+};
+
+export { transformJson, showJSON };

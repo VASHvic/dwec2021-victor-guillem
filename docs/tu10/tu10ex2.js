@@ -12,3 +12,7 @@ let aclean = (arr) => {
 };
 
 export default aclean;
+
+//solution with map
+//map.set(sorted, element);
+//return Array.from(map.values);

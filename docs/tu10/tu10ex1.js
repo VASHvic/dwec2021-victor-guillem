@@ -9,3 +9,6 @@ let unique = (arr) => {
 };
 
 export default unique;
+
+//sollution set
+// const conjunto = new Set(arr);

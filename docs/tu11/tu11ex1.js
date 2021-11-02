@@ -19,3 +19,5 @@ let getWeekDay = (date) => {
 };
 
 export default getWeekDay;
+
+//puede hacerse con .toLocaleDateString()

@@ -6,4 +6,8 @@ let getLastDayOfMonth = (year, month) => {
   return lastDayOfMonth;
 };
 
+// const getLastDayOfMonth = (year, month) =>{
+//   new Date(year, month +1, 0).getDate();
+// }
+
 export default getLastDayOfMonth;
