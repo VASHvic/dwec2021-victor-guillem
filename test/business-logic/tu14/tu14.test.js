@@ -1,4 +1,4 @@
-import { getMostPopulatedCity } from "../../docs/tu14/tu14";
+import { getMostPopulatedCity } from "../../../docs/tu14/tu14";
 
 describe("Test Suite for Tu14", () => {
   const myCities = [

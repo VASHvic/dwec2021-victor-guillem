@@ -1,8 +1,8 @@
 // function sum(a) {
-//   return function sum(b) {
+//   return function (b) {
 //     return a + b;
 //   };
 // }
 
-let sum = (a) => (b) => a + b;
-console.log(sum(1)(2));
+let sum = (a) => (b) => isNaN(a) || isNaN(b) ? NaN : +a + +b;
+export default sum;
