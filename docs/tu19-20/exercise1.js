@@ -11,3 +11,5 @@ console.log(tdAge);
 console.log(searchForm);
 console.log(firstInput);
 console.log(lastInput);
+
+//mirar table.rows[0].cells[0]
