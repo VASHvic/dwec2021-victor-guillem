@@ -1,3 +1,5 @@
+/*Event Listeners*/
+
 document.getElementById("show-form-btn").addEventListener("click", showForm);
 document.getElementById("backdrop").addEventListener("click", closeForm);
 document.querySelector(".btn--passive").addEventListener("click", closeForm);
@@ -7,6 +9,8 @@ const inputRating = document.getElementById("rating");
 inputRating.addEventListener("input", checkRating);
 const entrytext = document.getElementById("entry-text");
 
+
+/*Functions*/
 function showForm() {
   document.getElementById("backdrop").classList.add("visible");
   document.getElementById("add-modal").classList.add("visible");
