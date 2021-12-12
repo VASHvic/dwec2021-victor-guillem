@@ -1,6 +1,23 @@
-const box1 = document.getElementById("capa1");
-box1.draggable = true;
+const dragBox = document.getElementById("capa1");
+const destinationgBox = document.getElementById("capa2");
+dragBox.draggable = true;
 
-// box1.addEventListener('')
+dragBox.addEventListener("dragstart", () => {
+  dragBox.style.opacity = "0.5";
+});
+dragBox.addEventListener("dragend", () => {
+  dragBox.style.opacity = "1";
+});
 
-//https://developer.mozilla.org/en-US/docs/Web/API/Document/drag_event
+destinationgBox.addEventListener("dragover", (e) => {
+  destinationgBox.style.backgroundColor = "red";
+  e.preventDefault();
+});
+destinationgBox.addEventListener("dragleave", () => {
+  destinationgBox.style.backgroundColor = "transparent";
+});
+destinationgBox.addEventListener("drop", () => {
+  destinationgBox.style.backgroundColor = "yellow";
+  destinationgBox.innerHTML = "You have achieved it!";
+  document.getElementById("capa1").style.display = "none";
+});
