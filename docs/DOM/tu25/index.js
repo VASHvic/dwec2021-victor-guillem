@@ -1,9 +1,19 @@
 // Main HTML elements
 const container = document.getElementById("prompt-form-container");
 const form = document.getElementById("prompt-form");
-const mainButton = document
-  .getElementById("show-button")
-  .addEventListener("click", showPrompt);
+const showButton = document.getElementById("show-button");
+const inputBox = form.querySelector("input");
+const okButton = form.querySelector("input[value= 'Ok']");
+const cancelButton = form.querySelector("input[value= 'Cancel']");
+
+//Event listeners
+showButton.addEventListener("click", () => {
+  showPrompt("Say something funny!", (value) => {
+    alert(value);
+    inputBox.value = "";
+    location.reload();
+  });
+});
 
 /**
  * Show a half-transparent DIV to "shadow" the page
@@ -27,8 +37,6 @@ function showCover() {
 function hideCover() {
   document.getElementById("cover-div").remove();
   document.body.style.overflowY = "";
-  container.style.display = "none";
-  form.elements[0].value = "";
 }
 
 /**
@@ -38,18 +46,18 @@ function hideCover() {
  */
 function showPrompt(text, callback) {
   showCover();
-  text = "Say something funny!";
   // WRITE YOUR CODE HERE
-  form.firstElementChild.innerText = text;
-  //hacer ok button, cancel button, enter
-  const enteredText = form.elements[0].value;
-  const cancelButton = form.elements[2];
-  cancelButton.addEventListener("click", hideCover);
-  container.addEventListener("keydown", (e) => {
+  form.firstElementChild.textContent = text;
+  form.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      form.elements.text.value = "null";
+      callback(null);
     }
-    console.log(callback(form.elements.text.value));
   });
-  //   console.log(callback(form.elements.text.value));
+  okButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    callback(inputBox.value);
+  });
+  cancelButton.addEventListener("click", () => {
+    callback(null);
+  });
 }
