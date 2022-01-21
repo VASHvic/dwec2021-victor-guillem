@@ -7,6 +7,7 @@ const list = document.createElement("ul");
 
 function createInput() {
   const newInput = document.createElement("input");
+
   document.body.append(newInput);
 }
 
