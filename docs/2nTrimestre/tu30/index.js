@@ -11,9 +11,9 @@ function createInput() {
   document.body.append(newInput);
 }
 
-function printData(name) {
+function printData(info) {
   let newLi = document.createElement("li");
-  newLi.innerText = name;
+  newLi.innerText = info;
   ul.appendChild(newLi);
 }
 
@@ -25,7 +25,8 @@ async function fetchAll() {
   });
   const result = await Promise.allSettled(promesas);
   result.forEach((respuesta) => {
-    respuesta.value.json().then((e) => printData(e.login));
+    if (respuesta.value.status === 200) {
+      respuesta.value.json().then((e) => printData(e.login));
+    }
   });
 }
-//refactorizzar y chckear if ok
