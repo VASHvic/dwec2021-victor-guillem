@@ -10,13 +10,14 @@
 const btn = document.querySelector("button");
 btn.addEventListener("click", checkPermision);
 
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    const notificaiton = new Notification("Do you want to stop tacking your location?", {
+      body: "CLick in the notification to stop, cancel otherwise",
+    });
+  }
+});
 function checkPermision() {
-  const n = new Notification("Allow acces to your coordenates?");
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState == "visible") {
-      n.close();
-    }
-  });
   Notification.requestPermission((result) => {
     if (result === "denied") {
       console.log("Permission wasn't granted. Allow a retry.");
@@ -99,21 +100,4 @@ function initMap(latitude, longitude) {
   ).addTo(map);
 
   return map;
-}
-
-/**
- * Position the coords in the map with a marker
- * @param {*} map
- * @param {*} latitude
- * @param {*} longitude
- * @param {*} marker
- * @returns
- */
-function changePosition(map, latitude, longitude, marker) {
-  map.setView([latitude, longitude], 13);
-  if (marker) {
-    marker.removeFrom(map);
-  }
-  const newMarker = L.marker([latitude, longitude]).addTo(map);
-  return newMarker;
 }
