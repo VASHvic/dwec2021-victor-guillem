@@ -3,7 +3,8 @@ btn.addEventListener("click", checkPermision);
 
 let map;
 let marker = navigator.geolocation.getCurrentPosition((position) => {
-  map = initMap(position.coords.latitude, position.coords.longitude);
+  const { latitude, longitude } = position.coords;
+  map = initMap(latitude, longitude);
 });
 const watchID = navigator.geolocation.watchPosition((position) => {
   console.log("actualizando");
@@ -20,15 +21,16 @@ function checkPermision() {
       alert(`Permission  ${result}.`);
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
-          const notificaiton = new Notification(
+          console.log("visibility change");
+          const notification = new Notification(
             "Do you want to stop tracking your location?",
             {
               body: "Click in the notification to stop, cancel otherwise",
             }
           );
-          notificaiton.addEventListener("click", () => {
+          notification.addEventListener("click", () => {
             navigator.geolocation.clearWatch(watchID);
-            notificaiton.close();
+            notification.close();
           });
         }
       });
