@@ -21,7 +21,7 @@ async function fetchAll() {
   const allInputs = document.querySelectorAll("input");
   const promesas = [];
   allInputs.forEach((input) => {
-    promesas.push(fetch(`https://api.github.com/users/${input.value}`));
+    promesas.push(fetch(`https://api.github.com/users/${input.value}`)); //pot fer-se el then ací
   });
   const result = await Promise.allSettled(promesas);
   result.forEach((respuesta) => {

@@ -1,14 +1,14 @@
 const btn = document.querySelector("button");
 btn.addEventListener("click", checkPermision);
 
+const watchID = navigator.geolocation.watchPosition((position) => {
+  console.log("actualizando");
+  changePosition(map, position.coords.latitude, position.coords.longitude, marker);
+});
 let map;
 let marker = navigator.geolocation.getCurrentPosition((position) => {
   const { latitude, longitude } = position.coords;
   map = initMap(latitude, longitude);
-});
-const watchID = navigator.geolocation.watchPosition((position) => {
-  console.log("actualizando");
-  changePosition(map, position.coords.latitude, position.coords.longitude, marker);
 });
 
 function checkPermision() {
@@ -30,6 +30,7 @@ function checkPermision() {
           );
           notification.addEventListener("click", () => {
             navigator.geolocation.clearWatch(watchID);
+            result = "denied";
             notification.close();
           });
         }
