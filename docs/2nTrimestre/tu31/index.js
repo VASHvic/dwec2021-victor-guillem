@@ -1,17 +1,29 @@
 const btn = document.querySelector("button");
 btn.addEventListener("click", checkPermision);
 
-const watchID = navigator.geolocation.watchPosition((position) => {
-  console.log("actualizando");
-  changePosition(map, position.coords.latitude, position.coords.longitude, marker);
-});
+let marker;
 let map;
-let marker = navigator.geolocation.getCurrentPosition((position) => {
-  const { latitude, longitude } = position.coords;
-  map = initMap(latitude, longitude);
+let first = true;
+
+const watchID = navigator.geolocation.watchPosition((position) => {
+  console.log("Watch Position");
+
+  if (first) {
+    const { latitude, longitude } = position.coords;
+    map = initMap(latitude, longitude);
+    first = false;
+  }
+
+  marker = changePosition(
+    map,
+    position.coords.latitude,
+    position.coords.longitude,
+    marker
+  );
 });
 
 function checkPermision() {
+  let notification;
   Notification.requestPermission((result) => {
     if (result === "denied") {
       alert("Permission wasn't granted. Allow a retry.");
@@ -20,18 +32,18 @@ function checkPermision() {
     if (result === "granted") {
       alert(`Permission  ${result}.`);
       document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          console.log("I am visible");
+          notification.close();
+        }
         if (document.visibilityState === "hidden") {
           console.log("visibility change");
-          const notification = new Notification(
-            "Do you want to stop tracking your location?",
-            {
-              body: "Click in the notification to stop, cancel otherwise",
-            }
-          );
+          notification = new Notification("Do you want to stop tracking your location?", {
+            body: "Click in the notification to stop, cancel otherwise",
+          });
           notification.addEventListener("click", () => {
             navigator.geolocation.clearWatch(watchID);
-            result = "denied";
-            notification.close();
+            document.querySelector(".message").textContent = "Active geolocation stopped";
           });
         }
       });
